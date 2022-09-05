@@ -11,3 +11,4 @@ displays the last ten lines of a file
 6.5-firstlines
 displays the first ten lines of a file
 
+6-third_line--Displays the third line of file
