@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#crete infinte loop that displays text with sleep 2
+#press ctr-C to stop
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
