@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-#script that displays a list of running processes displayed in user-oriented format
+#displays all processes (a): user-oriented (u), TTY (x), show heitachy, (f)
 
 ps -auxf
