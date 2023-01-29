@@ -3,7 +3,7 @@
 #display I am invincible!!! when recieving SIGTERM signal
 msg()
 {
-	echo "I am invicible!!!"
+	echo "I am invincible!!!"
 }
 trap "msg" SIGTERM
 
