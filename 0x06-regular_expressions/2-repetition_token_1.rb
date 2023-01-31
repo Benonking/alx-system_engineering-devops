@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
-#march repetion
+#march "hbtn", "htn"
 puts ARGV[0].scan(/hb?tn/).join
