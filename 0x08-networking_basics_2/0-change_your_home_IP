@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# congigure ubuntu server to resolve localhost to 127.0.0.2 facebook.com to 8.8.8.8
+cp etc/hosts hosts.new
+sed -i s/127.*$127.0.0.2\\tlocalhost\\n8.8.8.8\\tfacebook.com/g hosts.new
+cp if hosts.new /etc/hosts
