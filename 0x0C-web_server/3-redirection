@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# install gnix on webo1 server
+# configure nginx server so /redirect_me is redirectiong to another page
+# Redirection must be a 301 moved permanetrly
+
+sudo apt-get -y install nginx
+sudo service nginx start
+sudo sed -i ''
+

@@ -3,7 +3,6 @@
 # Installs nginx web server
 # adds some content to the landing page
 # Finally Starts the nginx service
-
 apt-get -y update
 apt-get install -y nginx
 echo "Hello World!                 " > /var/www/html/index.html
