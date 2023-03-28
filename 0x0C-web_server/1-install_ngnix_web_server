@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# install nginx on web sever
+# let it listen on port 80
+# when qerying Nginx as root with GET request print "Hello World"
+
+sudo apt-get update
+sudo apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.html
+sudo service nginx start
+
+
