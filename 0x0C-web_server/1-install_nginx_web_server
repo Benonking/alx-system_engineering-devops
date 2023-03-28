@@ -5,5 +5,7 @@
 # Finally Starts the nginx service
 apt-get -y update
 apt-get install -y nginx
-echo "Hello World!                 " > /var/www/html/index.html
-/etc/init.d/nginx start
+service nginx start
+ufw nginx 'NGinx HTTP'
+echo "Hello World!\n" | sudo tee /var/www/html/index.ngix-debian.html
+service nginx restart
