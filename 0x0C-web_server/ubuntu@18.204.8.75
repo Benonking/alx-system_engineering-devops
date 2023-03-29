@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This Script Performs an apt update
+# Installs nginx web server
+# adds some content to the landing page
+# Finally Starts the nginx service
+
+apt-get install -y nginx
+service nginx start
+ufw allow 'NGinx HTTP'
+echo "Hello World!\n" | sudo tee /var/www/html/index.nginx-debian.html
+service nginx restart
