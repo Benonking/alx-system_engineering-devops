@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
-# Install nginx on my web01 server
-# Configure nginx server so /redirect_me is redirecting to another page
-# Redirection must be a 301 moved permanently
-sudo apt-get -y install nginx
-sudo service nginx start
-echo "Hello World!\n" | sudo tee /var/www/html/index.nginx-debian.html
-sudo sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-sudo service nginx restart
+# installs and sets up a simple Nginx web server on web-o1
+# configure the server so that /redirect me is redricitng to another page
+ROOT_FILE_PATH="var/www/html/index.html"
+SEVER_BLOCK_PATH="/etc/nginx/sites-available/default"
 
+TO_APPEND="\tlocation /redirem_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4\$request_uri;\n\t}"
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo touch "$ROOT_FILE_PATH"
+sudo chmod a+w "$ROOT_FILE_PATH"
+echo "Hello World!" > "$ROOT_FILE_PATH"
+sudo chmod a-w "ROOT_FILE_PATH"
+# insert changes into folder
+sudo sed -i "46 a\ $TO_APPEND" "$SERVER_BLOCK_PATH"
+
+#restart server
+sudo service nginx restart
