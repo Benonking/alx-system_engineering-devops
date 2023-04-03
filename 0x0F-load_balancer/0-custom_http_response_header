@@ -1,11 +1,26 @@
 #!/usr/bin/env bash
-#Configure Nginx so that its HTTP response contains a custom header (on web-01 and web-02).
+# Installs and sets up a simple Nginx web server on web-01
+ROOT_PATH="/var/www/html"
+ROOT_FILE_PATH="$ROOT_PATH/index.html"
+ERROR_FILE="/error.html"
+ERROR_FILE_PATH="$ROOT_PATH$ERROR_FILE"
+SERVER_BLOCK_PATH="/etc/nginx/sites-available/default"
+
+REDIRECTION="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4\$request_uri;\n\t}"
+CUSTOM_ERROR="\n\terror_page 404 $ERROR_FILE;\n\tlocation = $ERROR_FILE {\n\t\troot $ROOT_PATH;\n\t\tinternal;\n\t}"
+
 sudo apt-get update
 sudo apt-get -y install nginx
-echo 'Hello World!' > /var/www/html/index.html
-sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' \
-/etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" > /var/www/html/404.html
-sudo sed -i '/listen 80 default_server/a error_page 404 /404.html;' /etc/nginx/sites-available/default
-sudo sed -i '/try_files $uri $uri/a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+sudo touch "$ROOT_FILE_PATH"
+sudo touch "$ERROR_FILE_PATH"
+sudo chmod a+w "$ROOT_FILE_PATH" "$ERROR_FILE_PATH"
+echo "Hello World!" > "$ROOT_FILE_PATH"
+echo "Ceci n'est pas une page" > "$ERROR_FILE_PATH"
+sudo chmod a-w "$ROOT_FILE_PATH" "$ERROR_FILE_PATH"
+
+# Inserting changes into the folder
+sudo sed -i "46 a\ $REDIRECTION" "$SERVER_BLOCK_PATH"
+sudo sed -i "50 a\ $CUSTOM_ERROR" "$SERVER_BLOCK_PATH"
+
+# Restart server
 sudo service nginx restart
