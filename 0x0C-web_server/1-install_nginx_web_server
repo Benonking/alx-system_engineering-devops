@@ -3,12 +3,11 @@
 # Installs nginx web server
 # adds some content to the landing page
 # Finally Starts the nginx service
-
 ROOT_FILE_PATH="/vat/www/html/index.html"
 
 
 sudo apt-get update
-sudo apt-get install -y nginx
+sudo apt-get -y install nginx
 sudo touch "$ROOT_FILE_PATH"
 sudo chmod a+w "$ROOT_FILE_PATH"
 sudo echo "Hello World!" > "$ROOT_FILE_PATH"
