@@ -10,7 +10,7 @@ sudo apt-get -y install haproxy
 #edit config file
 server_config=\
 "
-frontend hhtp_front
+frontend http_front
 	bind *:80
 	mode http
 	default_backend http_back
@@ -19,7 +19,7 @@ backend http_back
 	server 104693-web-01 18.204.8.75 check
 	server 104693-web-02 107.22.145.89 check
 "
-echo "server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
 # enable haproxy to be statred by init script
 
