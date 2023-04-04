@@ -8,7 +8,9 @@
 sudo apt upgrade
 sudo apt-get install -y haproxy
 #edit config file
-sudo echo "frontend LOADBALANCER-01
+config =
+"
+frontend LOADBALANCER-01
         bind *:80
         mode http
         option forwardfor
@@ -18,10 +20,11 @@ backend WEBSERVERS-01
         balance roundrobin
         server 104693-web-01 18.204.8.75:80 check
         server 104693-web-02 107.22.145.89:80 check
-        option forwardfor" >> /etc/haproxy/haproxy.cfg
+	" 
+sudo echo "$config" >> /etc/haproxy/haproxy.cfg
 
 # enable haproxy to be statred by 
-echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
+sudo echo "ENABLED=1" >> /etc/default/haproxy
 sudo service haproxy restart
 
 
