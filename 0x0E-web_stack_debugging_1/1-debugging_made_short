@@ -2,3 +2,4 @@
 # change listening port 80 to 8080 on nginx file
 sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
 service nginx restart
+kill -9 "$(cat /run/nginx.pid)"
