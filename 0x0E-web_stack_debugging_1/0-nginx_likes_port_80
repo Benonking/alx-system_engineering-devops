@@ -4,5 +4,5 @@
 sudo service nginx start
 sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default
 sudo service nginx stop
-pkill ngix
+pkill nginx
 sudo service nginx restart
