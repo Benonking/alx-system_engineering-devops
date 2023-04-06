@@ -16,12 +16,18 @@ sudo apt-get update
 sudo apt-get -y install nginx
 sudo touch "$ROOT_FILE_PATH"
 sudo touch "$ERROR_FILE_PATH"
+
+#change permissions to allow file creation
 sudo chmod a+w "$ROOT_FILE_PATH" "$ERROR_FILE_PATH"
+
+#create index page
 echo "Hello World!" > "$ROOT_FILE_PATH"
+
+#create a web page for 404 error page
 echo "Ceci n'est pas une page" > "$ERROR_FILE_PATH"
 sudo chmod a-w "$ROOT_FILE_PATH" "$ERROR_FILE_PATH"
 
-# Inserting changes into the folder
+# configure redirect for a single page(/redrirect_me) and add header to display host name
 sudo sed -i "46 a\ $REDIRECTION" "$SERVER_BLOCK_PATH"
 sudo sed -i "50 a\ $CUSTOM_ERROR" "$SERVER_BLOCK_PATH"
 
