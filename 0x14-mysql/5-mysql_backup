@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# script to backup databases to "backup.sql" compress dump file to a tar.gz
+# the archive must be of format day-month-year.tar.gz
+
+sudo mysqldump -u root -p "$1" --all-databases > backup.sql
+sudo tar -cvzf "$(date +%d-%m-%y)".tar.gz backup.sql
+
