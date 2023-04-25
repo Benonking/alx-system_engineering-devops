@@ -1,27 +1,38 @@
 #!/usr/bin/python3
-"""fetching json data from an api"""
 
-import requests
+"""
+Python script that, using a REST API, for a given employee ID,
+returns information about his/her TODO list progress.
+"""
+
+from requests import get
 from sys import argv
 
-if __name__ == "__main__":
-    user_id = argv[1]
-    user_url = "https://jsonplaceholder.typicode.com/users/" + user_id
-    user_dict = requests.get(user_url).json()
-    user_name = user_dict.get("name")
-    user_todo = requests.get("https://jsonplaceholder.typicode.com/todos")
-    user_todo = user_todo.json()
-    total_todo = 0
-    completed_titles = []
-    number_completed = 0
 
-    for item in user_todo:
-        if item.get("userId") == int(user_id):
-            total_todo += 1
-            if item.get("completed") is True:
-                number_completed += 1
-                completed_titles.append(item.get("title"))
-    print("Employee {} is done with tasks({}/{}):".format(
-        user_name, number_completed, total_todo))
-    for title in completed_titles:
-        print("     {}".format(title))
+if __name__ == "__main__":
+    response = get('https://jsonplaceholder.typicode.com/todos/')
+    data = response.json()
+    completed = 0
+    total = 0
+    tasks = []
+    response2 = get('https://jsonplaceholder.typicode.com/users')
+    data2 = response2.json()
+
+    for i in data2:
+        if i.get('id') == int(argv[1]):
+            employee = i.get('name')
+
+    for i in data:
+        if i.get('userId') == int(argv[1]):
+            total += 1
+
+            if i.get('completed') is True:
+                completed += 1
+                tasks.append(i.get('title'))
+
+    print("Employee {} is done with tasks({}/{}):".format(employee, completed,
+                                                          total))
+
+    for i in tasks:
+        print("\t {}".format(i))
+
