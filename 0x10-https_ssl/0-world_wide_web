@@ -1,5 +1,6 @@
 #!/bin/env bash
 # Bash script to display information about subdomains
+# shellcheck disable=SC2086
 function subinfo {
 	if [ -z "$2" ] ; then
 		
