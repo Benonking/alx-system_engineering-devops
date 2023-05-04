@@ -30,9 +30,9 @@ function subinfo {
 
 	elif [ $# -eq 2 ] ; then
 		subdomain="$2.$1"
-		rec_type="$(dig "$subdomain" | grep -A1 'ANSER SECTION' | tail -1 | awk '{print $4}')"
+		rec_type="$(dig "$subdomain" | grep -A1 'ANSWER SECTION' | tail -1 | awk '{print $4}')"
 		ip="$(dig "$subdomain" |grep -A1 'ANSWER SECTION' | tail -1 | awk '{print $5}')"
-		echo "The subdoian $2 is a $rec_type record and points to $ip"
+		echo "The subdomain $2 is a $rec_type record and points to $ip"
 	fi
 }
 subinfo "$1" "$2"
