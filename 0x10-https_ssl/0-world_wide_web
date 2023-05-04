@@ -19,7 +19,7 @@ function subinfo {
 		web1_sub="web-01.$1"
 		web1_rec_type="$(dig "$web1_sub" | grep -A1 'ANSWER SECTION' | tail -1 | awk '{print $4}')"
 		web1_ip="$(dig "$web1_sub" | grep -A1 'ANSWER SECTION' | tail -1 | awk '{print $5}')"
-		echo "The subdomain web- is a $web1_rec_type record and points to $web1_ip"
+		echo "The subdomain web-01 is a $web1_rec_type record and points to $web1_ip"
 		
 		# web-02 servewr info
 		web2_sub="web-02.$1"
