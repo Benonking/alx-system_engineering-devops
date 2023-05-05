@@ -34,15 +34,15 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
 
 backend web-backend
-balance roundrobin
-server web1 100.25.211.218 check
-server web2 54.162.79.180 check
+	balance roundrobin
+	server web1 100.25.211.218 check
+	server web2 54.162.79.180 check
 
 frontend http
-bind *:80
-bind *:443 ssl crt /etc/letsencrypt/live/benonking.tech/fullchain.pem
-http-request redirect scheme https unless { ssl_fc }
+	bind *:80
+	bind *:443 ssl crt /etc/letsencrypt/live/benonking.tech/fullchain.pem
+	http-request redirect scheme https unless { ssl_fc }
 
-mode http
-default_backend web-backend
+	mode http
+	default_backend web-backend
 
