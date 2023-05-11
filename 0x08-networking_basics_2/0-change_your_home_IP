@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # congigure ubuntu server to resolve localhost to 127.0.0.2 facebook.com to 8.8.8.8
-#http://blog.jonathanargentiero.com/docker-sed-cannot-rename-etcsedl8ysxl-device-or-resource-busy/
-cp etc/hosts hosts_new
-sudo sed -i -e 's/127.0.0.1 localhost/127.0.0.2 localhost/g' etc/hosts
-echo -e "8.8.8.8\tfacebook.com" >> //cp -f /etc/hosts
+
+cp /etc/hosts ~/hosts.new
+sed -i 's/127.*$/127.0.0.2 localhost\n8.8.8.8 facebook.com/' ~/hosts.new
+cp -f ~/hosts.new /etc/hosts
