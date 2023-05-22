@@ -9,13 +9,11 @@ from sys import argv
 
 if __name__ == "__main__":
     ID = argv[1]
-    url = 'https://jsonplaceholder.typicode.com/todos'.format(ID)
-    todos = get(url, params={"userId": ID}).json()
-    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(ID)
-    user = get(user_url).json()
-    name = user.get('name')
+    url = 'https://jsonplaceholder.typicode.com/'
+    todos = get(url + 'todos', params={"userId": ID}).json()
+    user = get(url + 'users/{}'.format(ID)).json()
     completed = [t.get("title") for t in todos if t.get("completed") is True]
 
     print("Employee {} is done with tasks({}/{}):"
-          .format(name, len(completed), len(todos)))
+          .format(user.get('name'), len(completed), len(todos)))
     [print('\t {}'.format(t)) for t in completed]
