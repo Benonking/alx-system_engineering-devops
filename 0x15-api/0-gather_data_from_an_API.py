@@ -10,27 +10,26 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    response = get('https://jsonplaceholder.typicode.com/todos/')
-    data = response.json()
+    res_todos = get('https://jsonplaceholder.typicode.com/todos/')
+    todos = res_todos.json()
     completed = 0
     total = 0
     tasks = []
-    response2 = get('https://jsonplaceholder.typicode.com/users')
-    data2 = response2.json()
+    res_users = get('https://jsonplaceholder.typicode.com/users')
+    users = res_users.json()
 
-    for i in data2:
+    for i in users:
         if i.get('id') == int(argv[1]):
-            employee = i.get('name')
+            employee_name = i.get('name')
 
-    for i in data:
+    for i in todos:
         if i.get('userId') == int(argv[1]):
             total += 1
-
             if i.get('completed') is True:
                 completed += 1
                 tasks.append(i.get('title'))
 
-    print("Employee {} is done with tasks({}/{}):".format(employee, completed,
+    print("Employee {} is done with tasks({}/{}):".format(employee_name, completed,
                                                           total))
 
     for i in tasks:
