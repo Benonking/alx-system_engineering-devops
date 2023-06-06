@@ -5,6 +5,7 @@ retrieve list containing titlesof hot articles for a given subreddit
 '''
 import requests
 
+
 def recurse(subreddit, hot_list=[], after='tmp'):
     '''
     recursvily get hot artilce titles for subreddit
@@ -12,7 +13,7 @@ def recurse(subreddit, hot_list=[], after='tmp'):
     url = 'https://www.reddit.com/r/{}/hot.json'.format(subreddit)
     headers = {'User-Agent': 'linux'}
     if after != 'tmp':
-        url  = url + '?after={}'.format(after)
+        url = url + '?after={}'.format(after)
 
     r = requests.get(url, headers=headers, allow_redirects=False).json()
     res = r.get('data').get('children')
@@ -26,5 +27,3 @@ def recurse(subreddit, hot_list=[], after='tmp'):
     if not after:
         return hot_list
     return (recurse(subreddit, hot_list, after))
-
-    
