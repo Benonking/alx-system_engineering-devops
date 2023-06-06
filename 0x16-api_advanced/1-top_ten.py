@@ -12,9 +12,9 @@ def top_ten(subreddit):
     '''
     url = 'https://www.reddit.com/r/{}/hot.json?limit=10'.format(subreddit)
     headers = {"User-Agent": "linux"}
-    r = requests.get(url, headers=headers, allow_redirects=False).json()
-    t_10 = r.get('data').get('children')
-    if not r:
+    r = requests.get(url, headers=headers, allow_redirects=False)
+    if r.status_code == 404:
         print(None)
+    t_10 = r.get('data').get('children')
     for t in t_10:
         print(t.get('data').get('title'))
