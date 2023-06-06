@@ -19,14 +19,13 @@ def recurse(subreddit, hot_list=[], after='tmp'):
     if r.status_code == 404:
         return None
     res = r.json().get('data')
-    res = res.get('children')
     if not res:
         return hot_list
     'apend artils to list'
-    for a in res:
+    for a in res.get('children'):
         hot_list.append(a.get('data').get('title'))
         'get next param'
-    after = r.get('data').get('after')
+    after = res.get('after')
     if not after:
         return hot_list
     return (recurse(subreddit, hot_list, after))
