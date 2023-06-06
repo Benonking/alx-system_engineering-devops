@@ -15,8 +15,10 @@ def recurse(subreddit, hot_list=[], after='tmp'):
     if after != 'tmp':
         url = url + '?after={}'.format(after)
 
-    r = requests.get(url, headers=headers, allow_redirects=False).json()
-    res = r.get('data').get('children')
+    r = requests.get(url, headers=headers, allow_redirects=False)
+    res = r.json().get('data').get('children')
+    if r.status_code == 404:
+        return None
     if not res:
         return hot_list
     'apend artils to list'
