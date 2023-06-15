@@ -78,9 +78,6 @@ Notice: /Stage[main]/Main/Exec[fix--for-nginx]/returns: executed successfully
 Notice: Finished catalog run in 1.12 seconds
 root@0a62aa706eb3:/#
 root@0a62aa706eb3:/#
-````
-**After Configuration**
-````
 root@0a62aa706eb3:/# ab -c 100 -n 2000 localhost/
 This is ApacheBench, Version 2.3 <$Revision: 1528965 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
