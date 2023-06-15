@@ -70,7 +70,7 @@ Percentage of the requests served within a certain time (ms)
   99%     23
  100%     24 (longest request)
 ```
-### Desired output
+**Before configuration**
 ```
 root@0a62aa706eb3:/# puppet apply 0-the_sky_is_the_limit_not.pp
 Notice: Compiled catalog for 0a62aa706eb3.local in environment production in 0.01 seconds
@@ -78,6 +78,9 @@ Notice: /Stage[main]/Main/Exec[fix--for-nginx]/returns: executed successfully
 Notice: Finished catalog run in 1.12 seconds
 root@0a62aa706eb3:/#
 root@0a62aa706eb3:/#
+````
+**After Configuration**
+````
 root@0a62aa706eb3:/# ab -c 100 -n 2000 localhost/
 This is ApacheBench, Version 2.3 <$Revision: 1528965 $>
 Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
@@ -135,7 +138,7 @@ Percentage of the requests served within a certain time (ms)
 root@0a62aa706eb3:/#
 ```
 ## Task 2
-**Configuration file**
+**puppet configuration file**
 - 1-user_limit.pp
 **Before configuration**
 Change the OS configuration so that it is possible to login with the holberton user and open a file without any error message.
