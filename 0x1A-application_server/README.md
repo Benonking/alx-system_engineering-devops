@@ -217,7 +217,7 @@ Let’s serve what you built for [AirBnB clone - Web dynamic](https://github.com
  After loading, your website should look like this:
  ![](https://github.com/Benonking/images/blob/main/7a8a7c33021b1b74f9cdc1fd8f855bdb1f8cd44e.png)
 
-<ins>**Deploy it**</ins>
+### <ins>**Deploy it**</ins>
         
 **File** - gunicorn.service
 
