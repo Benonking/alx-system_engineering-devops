@@ -7,8 +7,9 @@ Your web infrastructure is already serving web pages via Nginx that you installe
  ![](https://github.com/Benonking/images/blob/main/infrastructure.jpg)
 
  ### Tasks
- <u>**0-Set up development with Python**</u>
-        Let’s serve what you built for [AirBnB clone v2 - Web framework](https://github.com/Benonking/AirBnB_clone_v2) on web-01. This task is an exercise in setting up your development environment, which is used for testing and debugging your code before deploying it to production.
+ <ins>**Set up development with Python**</ins>
+    
+    Let’s serve what you built for [AirBnB clone v2 - Web framework](https://github.com/Benonking/AirBnB_clone_v2) on web-01. This task is an exercise in setting up your development environment, which is used for testing and debugging your code before deploying it to production.
 
 **Requirements:**
 
