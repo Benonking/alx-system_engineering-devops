@@ -7,7 +7,7 @@ Your web infrastructure is already serving web pages via Nginx that you installe
  ![](https://github.com/Benonking/images/blob/main/infrastructure.jpg)
 
  ### Tasks
- <ins>**Set up development with Python**</ins>
+ ### <ins>**Set up development with Python**</ins>
     
     Let’s serve what you built for [AirBnB clone v2 - Web framework](https://github.com/Benonking/AirBnB_clone_v2) on web-01. This task is an exercise in setting up your development environment, which is used for testing and debugging your code before deploying it to production.
 
@@ -36,7 +36,7 @@ window 2:
 ubuntu@229-web-01:~/AirBnB_clone_v2$ curl 127.0.0.1:5000/airbnb-onepage/
 Hello HBNB!ubuntu@229-web-01:~/AirBnB_clone_v2$
 ```
-<ins>**Set up production with Gunicorn**</ins>
+### <ins>**Set up production with Gunicorn**</ins>
 
 Now that you have your development environment set up, let’s get your production application server set up with Gunicorn on web-01, port 5000. You’ll need to install Gunicorn and any libraries required by your application. Your Flask application object will serve as a [WSGI](https://intranet.alxswe.com/rltoken/IaAZ7A8IYGkO9Ah9uwL39Q) entry point into your application. This will be your production environment. As you can see we want the production and development of your application to use the same port, so the conditions for serving your dynamic content are the same in both environments.
 
@@ -61,7 +61,7 @@ Terminal 2:
 ubuntu@229-web-01:~$ curl 127.0.0.1:5000/airbnb-onepage/
 Hello HBNB!ubuntu@229-web-01:~$
 ```
-<ins>**Serve a page with Nginx**</ins>
+### <ins>**Serve a page with Nginx**</ins>
     
 **Configuration file** - 2-app_server-nginx_config
 
@@ -107,7 +107,7 @@ X-Served-By: 229-web-01
 vagrant@ubuntu-xenial:~$ curl 35.231.193.217/airbnb-onepage/
 Hello HBNB!vagrant@ubuntu-xenial:~$
 ```
-<ins>**Add a route with query parameters**</ins>
+### <ins>**Add a route with query parameters**</ins>
 
 **Configuration file** - 3-app_server-nginx_config
 
@@ -168,7 +168,7 @@ vagrant@ubuntu-xenial:~$ curl 35.231.193.217/airbnb-dynamic/number_odd_or_even/6
   <BODY><H1>Number: 6 is even</H1></BODY>
 </HTML>vagrant@ubuntu-xenial:~$
 ```
- <ins>**Let's do this for your API**</ins>
+ ### <ins>**Let's do this for your API**</ins>
         
 **Configuration file** - 4-app_server-nginx_config
 
