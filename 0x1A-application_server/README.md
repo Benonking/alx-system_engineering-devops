@@ -36,7 +36,7 @@ window 2:
 ubuntu@229-web-01:~/AirBnB_clone_v2$ curl 127.0.0.1:5000/airbnb-onepage/
 Hello HBNB!ubuntu@229-web-01:~/AirBnB_clone_v2$
 ```
-<u>**Set up production with Gunicorn**</u>
+<ins>**Set up production with Gunicorn**</ins>
 
 Now that you have your development environment set up, let’s get your production application server set up with Gunicorn on web-01, port 5000. You’ll need to install Gunicorn and any libraries required by your application. Your Flask application object will serve as a [WSGI](https://intranet.alxswe.com/rltoken/IaAZ7A8IYGkO9Ah9uwL39Q) entry point into your application. This will be your production environment. As you can see we want the production and development of your application to use the same port, so the conditions for serving your dynamic content are the same in both environments.
 
@@ -61,7 +61,7 @@ Terminal 2:
 ubuntu@229-web-01:~$ curl 127.0.0.1:5000/airbnb-onepage/
 Hello HBNB!ubuntu@229-web-01:~$
 ```
-<u>**Serve a page with Nginx**</u>
+<ins>**Serve a page with Nginx**</ins>
     
 **Configuration file** - 2-app_server-nginx_config
 
@@ -107,7 +107,7 @@ X-Served-By: 229-web-01
 vagrant@ubuntu-xenial:~$ curl 35.231.193.217/airbnb-onepage/
 Hello HBNB!vagrant@ubuntu-xenial:~$
 ```
-<u>**Add a route with query parameters**</u>
+<ins>**Add a route with query parameters**</ins>
 
 **Configuration file** - 3-app_server-nginx_config
 
@@ -168,7 +168,7 @@ vagrant@ubuntu-xenial:~$ curl 35.231.193.217/airbnb-dynamic/number_odd_or_even/6
   <BODY><H1>Number: 6 is even</H1></BODY>
 </HTML>vagrant@ubuntu-xenial:~$
 ```
- <u>**Let's do this for your API**</u>
+ <ins>**Let's do this for your API**</ins>
         
 **Configuration file** - 4-app_server-nginx_config
 
@@ -198,7 +198,7 @@ vagrant@ubuntu-xenial:~$ curl 35.231.193.217/api/v1/states
 [{"__class__":"State","created_at":"2019-05-10T00:39:27.032802","id":"7512f664-4951-4231-8de9-b18d940cc912","name":"California","updated_at":"2019-05-10T00:39:27.032965"},{"__class__":"State","created_at":"2019-05-10T00:39:36.021219","id":"b25625c8-8a7a-4c1f-8afc-257bf9f76bc8","name":"Arizona","updated_at":"2019-05-10T00:39:36.021281"}]
 vagrant@ubuntu-xenial:~$
 ```
-<u>**Server your AirBnB clone**</u>
+<ins>**Server your AirBnB clone**</ins>
         
 **Configuration file** - 5-app_server-nginx_config
 
@@ -217,7 +217,7 @@ Let’s serve what you built for [AirBnB clone - Web dynamic](https://github.com
  After loading, your website should look like this:
  ![](https://github.com/Benonking/images/blob/main/7a8a7c33021b1b74f9cdc1fd8f855bdb1f8cd44e.png)
 
-<u>**Deploy it**</u>
+<ins>**Deploy it**</ins>
         
 **File** - gunicorn.service
 
