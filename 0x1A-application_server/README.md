@@ -224,7 +224,8 @@ Once you’ve got your application server configured, you want to set it up to r
  - Make sure that you start the systemd service and leave it running
  - Upload gunicorn.service to GitHub
 
-```bob@dylan:~$ curl -s 127.0.0.1:5003/2-hbnb | tail -5
+```
+bob@dylan:~$ curl -s 127.0.0.1:5003/2-hbnb | tail -5
     </div>
     <footer>
       <p>Holberton School</p>
